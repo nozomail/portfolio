@@ -10,16 +10,39 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       indigo: colors.indigo,
-      violet: colors.violet,
       fuchsia: colors.fuchsia,
+      pink: colors.pink,
+      rose: colors.rose,
+      orange: colors.orange,
+      emerald: colors.emerald,
     },
     fontFamily: {
       sans: ["Barlow", "sans-serif"],
+      display: ["Philosopher", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      textShadow: {
+        md: "0px 3px 10px rgba(0, 0, 0, 0.3)",
+      },
+      inset: {
+        "1/5": "20%",
+        "1/7": "14.2%",
+        "1/10": "10%",
+        "1/20": "5%",
+      },
+      fontSize: {
+        "10xl": "10rem",
+      },
+      screens: {
+        portrait: { raw: "(max-width: 639px) and (orientation: portrait)" },
+        landscape: { raw: "(max-width: 639px) and (orientation: landscape)" },
+        smPortrait: { raw: "(min-width: 640px) and (max-width: 767px) and (orientation: portrait)" },
+        smLandscape: { raw: "(min-width: 640px) and (max-width: 767px) and (orientation: landscape)" },
+      },
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("tailwindcss-textshadow")],
 };
