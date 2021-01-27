@@ -39,6 +39,15 @@ module.exports = {
         smPortrait: { raw: "(min-width: 640px) and (max-width: 767px) and (orientation: portrait)" },
         smLandscape: { raw: "(min-width: 640px) and (max-width: 767px) and (orientation: landscape)" },
       },
+      keyframes: {
+        star: {
+          "0%, 10%, 100%": { opacity: "0" },
+          "5%": { opacity: "1" },
+        },
+      },
+      animation: {
+        star: "star 3 linear both",
+      },
     },
   },
   variants: {
