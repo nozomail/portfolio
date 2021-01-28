@@ -4,3 +4,38 @@ html,
 body {
   overflow: hidden;
 }
+
+@layer utilities {
+  .filter-shadow {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  }
+
+  .text-shadow-none {
+    text-shadow: none;
+  }
+  .text-shadow-lw {
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  }
+  .text-shadow-ls {
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+  }
+  .text-shadow-sw {
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  }
+  .text-shadow-ss {
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .shadow-lw {
+    box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+  .shadow-ls {
+    box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.4);
+  }
+  .shadow-sw {
+    box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  }
+  .shadow-ss {
+    box-shadow: 0px 3px 10px 0 rgba(0, 0, 0, 0.4);
+  }
+}

@@ -9,6 +9,7 @@ module.exports = {
       current: "currentColor",
       black: colors.black,
       white: colors.white,
+      gray: colors.gray,
       indigo: colors.indigo,
       fuchsia: colors.fuchsia,
       pink: colors.pink,
@@ -21,9 +22,6 @@ module.exports = {
       display: ["Philosopher", "sans-serif"],
     },
     extend: {
-      textShadow: {
-        md: "0px 3px 10px rgba(0, 0, 0, 0.3)",
-      },
       inset: {
         "1/5": "20%",
         "1/7": "14.2%",
@@ -32,6 +30,15 @@ module.exports = {
       },
       fontSize: {
         "10xl": "10rem",
+      },
+      padding: {
+        "1/4": "25%",
+        "1/3": "33.3%",
+        "3/8": "37.5%",
+        "1/2": "50%",
+        "2/3": "66.6%",
+        "3/4": "75%",
+        full: "100%",
       },
       screens: {
         portrait: { raw: "(max-width: 639px) and (orientation: portrait)" },
@@ -53,5 +60,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("tailwindcss-textshadow")],
+  plugins: [],
 };

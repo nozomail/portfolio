@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 import Header from "../components/header";
@@ -16,6 +17,7 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
   const title = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
   const [height, setHeight] = useState<number>(0);
   const [stars, setStars] = useState([]);
+  const router = useRouter();
 
   function createStars() {
     const windowWidth = window.innerWidth;
@@ -40,17 +42,17 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
 
   useEffect(() => {
     setHeight(window.innerHeight);
-    createStars();
+    // createStars();
 
     window.addEventListener("resize", () => {
       setHeight(window.innerHeight);
-      createStars();
+      // createStars();
     });
   }, []);
 
   return (
     <div
-      className="p-4 md:p-8 bg-gradient-to-r from-indigo-900 to-fuchsia-900 overflow-hidden"
+      className="p-4 md:py-6 md:px-8 bg-gradient-to-r from-indigo-900 to-fuchsia-900 overflow-hidden"
       style={{ height: `${height}px` }}
     >
       <Head>
@@ -59,14 +61,16 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
 
       <Header />
 
-      <div id="planets">
-        <Planets />
-      </div>
+      <div className={`${router.pathname === "/" ? "" : "opacity-20"}`}>
+        <div id="planets">
+          <Planets />
+        </div>
 
-      <div id="stars">
-        {stars.map((star, i) => (
-          <Star {...star} key={i} />
-        ))}
+        <div id="stars">
+          {stars.map((star, i) => (
+            <Star {...star} key={i} />
+          ))}
+        </div>
       </div>
 
       <main>{children}</main>
