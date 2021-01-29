@@ -14,7 +14,7 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full flex items-center justify-between sm:justify-start">
+    <header className="w-full flex items-center justify-between sm:justify-start px-4 md:px-8 py-2 md:py-4">
       <div className="flex">
         <a className="flex-shrink-0 flex content-center" href="https://github.com/nozomail" target="_blank">
           <img className="w-5" src="/github.svg" alt="GitHub" />

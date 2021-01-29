@@ -52,7 +52,7 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
 
   return (
     <div
-      className="p-4 md:py-6 md:px-8 bg-gradient-to-r from-indigo-900 to-fuchsia-900 overflow-hidden"
+      className="flex flex-col bg-gradient-to-r from-indigo-900 to-fuchsia-900 overflow-hidden"
       style={{ height: `${height}px` }}
     >
       <Head>
@@ -73,7 +73,7 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
         </div>
       </div>
 
-      <main>{children}</main>
+      <main className="flex-grow relative px-4 md:px-8 py-8 md:pb-12 overflow-y-auto">{children}</main>
     </div>
   );
 }
