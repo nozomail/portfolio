@@ -61,7 +61,7 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
 
       <Header />
 
-      <div className={`${router.pathname === "/" || router.pathname === "/work" ? "" : "opacity-20"}`}>
+      <div className={`${router.pathname === "/" ? "" : "opacity-20"}`}>
         <div id="planets">
           <Planets />
         </div>
@@ -74,10 +74,12 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
       </div>
 
       <main className="flex-grow relative">
-        <div className="px-4 md:px-8 py-8 md:pb-12 absolute inset-0 z-20 overflow-y-auto">
-          <div className="max-w-screen-xl min-h-full md:flex flex-col justify-center text-white mx-auto">
-            {children}
-          </div>
+        <div
+          className={`${
+            router.pathname === "/contact" ? "px-0 md:px-0 py-4" : "px-4 md:px-8 py-8 md:pb-12"
+          } absolute inset-0 z-20 overflow-y-auto`}
+        >
+          <div className="max-w-screen-xl min-h-full flex flex-col justify-center text-white mx-auto">{children}</div>
         </div>
       </main>
     </div>

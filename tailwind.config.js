@@ -16,12 +16,17 @@ module.exports = {
       rose: colors.rose,
       orange: colors.orange,
       emerald: colors.emerald,
+      teal: colors.teal,
+      lightBlue: colors.lightBlue,
     },
     fontFamily: {
       sans: ["Barlow", "sans-serif"],
       display: ["Philosopher", "sans-serif"],
     },
     extend: {
+      backgroundImage: {
+        cloud: "url('/cloud.svg')",
+      },
       inset: {
         "1/5": "20%",
         "1/7": "14.2%",
@@ -31,14 +36,17 @@ module.exports = {
       fontSize: {
         "10xl": "10rem",
       },
+      maxWidth: {
+        lg: "30rem",
+      },
       padding: {
+        "1/5": "20%",
         "1/4": "25%",
         "1/3": "33.3%",
         "3/8": "37.5%",
         "1/2": "50%",
         "2/3": "66.6%",
         "3/4": "75%",
-        full: "100%",
       },
       screens: {
         portrait: { raw: "(max-width: 639px) and (orientation: portrait)" },
