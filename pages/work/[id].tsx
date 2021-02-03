@@ -1,7 +1,14 @@
 import styles from "../../styles/work.module.scss";
 import Layout from "../../components/layout";
 
-import { getAllProjectIds, getProjectData, ProjectProps } from "../../lib/projects";
+export type ProjectProps = {
+  slug: string;
+  title: string;
+  roles: string[];
+  tools: string[];
+  img: string;
+  body: string;
+};
 
 export default function Project({ title, roles, tools, img, body }: ProjectProps) {
   return (
@@ -45,7 +52,16 @@ export default function Project({ title, roles, tools, img, body }: ProjectProps
 }
 
 export async function getStaticPaths() {
-  const paths = getAllProjectIds();
+  const res = await fetch(`${process.env.API_URL}/projects/`);
+  const projects = await res.json();
+  const paths = projects.map((project) => {
+    return {
+      params: {
+        id: project.slug
+      }
+    };
+  });
+
   return {
     paths,
     fallback: false,
@@ -53,15 +69,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await getProjectData(params.id);
+  const res = await fetch(`${process.env.API_URL}/projects/${params.id}`);
+  const data = await res.json();
+
+  const { title, roles, tools, img, body } = data[0];
 
   return {
     props: {
-      title: data.title,
-      roles: data.roles,
-      tools: data.tools,
-      img: data.img,
-      body: data.body,
+      title,
+      roles,
+      tools,
+      img,
+      body,
     },
   };
 }
