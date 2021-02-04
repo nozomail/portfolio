@@ -59,9 +59,15 @@ module.exports = {
           "0%, 10%, 100%": { opacity: "0" },
           "5%": { opacity: "1" },
         },
+        messageSent: {
+          "0%": { opacity: "1", transform: "scale(1) rotate(0)" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: "0", transform: "scale(0) rotate(-90deg)" },
+        },
       },
       animation: {
         star: "star 3 linear both",
+        messageSent: "messageSent 0.75s cubic-bezier(0.6, 0, 0.8, 0.5) both",
       },
     },
   },

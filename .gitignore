@@ -3,5 +3,6 @@
 /build
 .DS_Store
 yarn.lock
-.env*.local
+.env.development
+.env.production
 /data
