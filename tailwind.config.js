@@ -39,6 +39,9 @@ module.exports = {
       maxWidth: {
         lg: "30rem",
       },
+      minHeight: {
+        38: "38rem",
+      },
       padding: {
         "1/5": "20%",
         "1/4": "25%",
@@ -47,6 +50,10 @@ module.exports = {
         "1/2": "50%",
         "2/3": "66.6%",
         "3/4": "75%",
+      },
+      transitionDelay: {
+        0: "0ms",
+        1500: "1500ms",
       },
       screens: {
         portrait: { raw: "(max-width: 639px) and (orientation: portrait)" },

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 import Header from "../components/header";
 import Planets from "../components/planets";
@@ -9,11 +10,13 @@ import { getRandom } from "../utils/random";
 
 type LayoutProps = {
   children: React.ReactNode;
+  isHome?: boolean;
   pageTitle?: string;
+  controls?: any;
 };
 const siteName = "Nozomi's Portfolio";
 
-export default function Layout({ children, pageTitle }: LayoutProps) {
+export default function Layout({ children, pageTitle, isHome = false, controls }: LayoutProps) {
   const title = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
   const [height, setHeight] = useState<number>(0);
   const [stars, setStars] = useState([]);
@@ -40,7 +43,11 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
     setStars(newStars);
   }
 
+  console.log("out useEffect: Layout rendered");
+
   useEffect(() => {
+    console.log("in useEffect: Layout rendered");
+
     setHeight(window.innerHeight);
     // createStars();
 
@@ -61,7 +68,11 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
 
       <Header />
 
-      <div className={`${router.pathname === "/" ? "" : "opacity-20"}`}>
+      <div
+        className={`transition-opacity duration-1000 ${
+          router.pathname === "/" ? "opacity-100  delay-0" : "opacity-20  delay-1500"
+        }`}
+      >
         <div id="planets">
           <Planets />
         </div>
@@ -76,10 +87,10 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
       <main className="flex-grow relative">
         <div
           className={`${
-            router.pathname === "/contact" ? "px-0 md:px-0 py-4" : "px-4 md:px-8 py-8 md:pb-12"
+            router.pathname === "/contact" ? "px-0 py-8" : "px-4 md:px-8 py-8 md:pb-12"
           } absolute inset-0 z-20 overflow-y-auto`}
         >
-          <div className="max-w-screen-xl min-h-full flex flex-col justify-center text-white mx-auto">{children}</div>
+          <div className="max-w-screen-xl min-h-full flex flex-col justify-center text-white mx-auto">{children}</div>;
         </div>
       </main>
     </div>
