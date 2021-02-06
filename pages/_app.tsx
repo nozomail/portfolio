@@ -1,8 +1,8 @@
-import "tailwindcss/tailwind.css";
-import "../styles/globals.scss";
-
 import { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
+
+import "tailwindcss/tailwind.css";
+import "../styles/globals.scss";
 
 import Layout from "../components/layout";
 

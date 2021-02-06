@@ -43,11 +43,7 @@ export default function Layout({ children, pageTitle, isHome = false, controls }
     setStars(newStars);
   }
 
-  console.log("out useEffect: Layout rendered");
-
   useEffect(() => {
-    console.log("in useEffect: Layout rendered");
-
     setHeight(window.innerHeight);
     // createStars();
 
@@ -85,14 +81,18 @@ export default function Layout({ children, pageTitle, isHome = false, controls }
       </div>
 
       <main className="flex-grow relative">
-        <div
-          className={`${
-            router.pathname === "/contact" ? "px-0 py-8" : "px-4 md:px-8 py-8 md:pb-12"
-          } absolute inset-0 z-20 overflow-y-auto`}
-        >
-          <div className="max-w-screen-xl min-h-full flex flex-col justify-center text-white mx-auto">{children}</div>;
-        </div>
+        <div className="absolute inset-0 z-20 overflow-y-auto overflow-x-hidden">{children}</div>
       </main>
     </div>
   );
+}
+
+{
+  /* <div
+  className={`${
+    router.pathname === "/contact" ? "" : "px-4 md:px-8 py-8 md:pb-12"
+  } absolute inset-0 z-20 overflow-y-auto`}
+>
+  <div className="max-w-screen-xl min-h-full flex flex-col justify-center text-white mx-auto">{children}</div>
+</div>; */
 }

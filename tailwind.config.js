@@ -39,8 +39,11 @@ module.exports = {
       maxWidth: {
         lg: "30rem",
       },
-      minHeight: {
-        38: "38rem",
+      width: {
+        lg: "30rem",
+      },
+      height: {
+        lg: "29rem",
       },
       padding: {
         "1/5": "20%",
