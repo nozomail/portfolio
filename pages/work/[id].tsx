@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 
-import styles from "../../styles/work.module.scss";
-
 import { variants, page } from "../../utils/framerMotion";
 
 export type ProjectProps = {
@@ -59,7 +57,7 @@ export default function Project({ title, roles, tools, img, body }: ProjectProps
           </motion.div>
           <motion.div
             variants={variants.fadeInUp}
-            className={`mt-8 lg:text-xl ${styles.desc}`}
+            className="mt-8 lg:text-xl project-desc"
             dangerouslySetInnerHTML={{ __html: body }}
           ></motion.div>
         </motion.div>

@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-import styles from "../styles/home.module.scss";
-
 import { variants, home, rocket } from "../utils/framerMotion";
 
 export default function Home() {
@@ -57,7 +55,7 @@ export default function Home() {
           initial={rocket(isSmall).initial}
           animate={controls}
           exit={rocket(isSmall).exit}
-          className={styles.rocket}
+          className="home-rocket"
         >
           <div></div>
         </motion.div>
