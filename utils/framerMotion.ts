@@ -42,6 +42,18 @@ export const variants = {
       },
     },
   },
+  homeSubHeading: {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.75,
+        delay: 1.25,
+      },
+    },
+  },
   aboutHeading: {
     initial: {
       opacity: 0,
@@ -54,18 +66,6 @@ export const variants = {
         type: "spring",
         stiffness: 100,
         delay: 1,
-      },
-    },
-  },
-  homeSubHeading: {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        duration: 0.75,
-        delay: 0.75,
       },
     },
   },
@@ -118,6 +118,14 @@ export const variants = {
       },
     },
   },
+  staggerHomeHeading: {
+    animate: {
+      transition: {
+        staggerChildren: 0.25,
+        delayChildren: 0.5,
+      },
+    },
+  },
   staggerAboutTools: {
     animate: {
       transition: {
@@ -135,6 +143,19 @@ export const page = {
     transition: {
       ease: "backIn",
       duration: 0.5,
+    },
+  },
+};
+
+export const layout = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+      delay: 0.5,
     },
   },
 };
@@ -169,7 +190,8 @@ export const rocket = (isSmall?: boolean) => {
       x: 0,
       y: 0,
       transition: {
-        duration: 3,
+        duration: 2,
+        delay: 0.5,
         ease: [0.5, 0, 0, 1],
       },
     },
@@ -178,7 +200,7 @@ export const rocket = (isSmall?: boolean) => {
       y: isSmall ? "-60vh" : "60vh",
       scale: 8,
       transition: {
-        duration: 2,
+        duration: 1.5,
         ease: [0.7, 0, 0.84, 0],
       },
     },
@@ -205,6 +227,7 @@ export const form = {
     transition: {
       type: "spring",
       bounce: 0.5,
+      delay: 0.25,
     },
   },
   exit: {
