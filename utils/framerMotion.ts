@@ -276,6 +276,12 @@ export const glowBtn = {
   transition: { type: "spring", bounce: 0.6 },
 };
 
+export const glowText = {
+  scale: 1.1,
+  textShadow: "0 0 4px #fff",
+  transition: { type: "spring", bounce: 0.6 },
+};
+
 export const icon = {
   scale: 1.3,
   transition: { type: "spring", bounce: 0.6 },

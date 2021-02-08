@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { variants, page, glowBtn } from "../../utils/framerMotion";
+import { variants, page, glowBtn, glowText } from "../../utils/framerMotion";
 
 export type ProjectProps = {
   slug: string;
@@ -11,10 +11,12 @@ export type ProjectProps = {
   tools: string[];
   img: string;
   body: string;
+  url: string | null;
+  repo: string | null;
   next: string;
 };
 
-export default function Project({ title, roles, tools, img, body, next }: ProjectProps) {
+export default function Project({ title, roles, tools, img, body, url, repo, next }: ProjectProps) {
   const router = useRouter();
   const [isSwitching, setIsSwitching] = useState(false);
 
@@ -76,6 +78,30 @@ export default function Project({ title, roles, tools, img, body, next }: Projec
                 </motion.div>
                 <motion.div variants={variants.fadeInUp}>
                   <div dangerouslySetInnerHTML={{ __html: body }} className="mt-8 lg:text-xl project-desc"></div>
+                  <div className="">
+                    {repo && (
+                      <a href={repo} target="_blank">
+                        <motion.button
+                          whileHover={glowBtn}
+                          type="button"
+                          className="w-24 border border-white rounded-full py-2 px-4 mt-6 mr-4"
+                        >
+                          Github
+                        </motion.button>
+                      </a>
+                    )}
+                    {url && (
+                      <a href={url} target="_blank">
+                        <motion.button
+                          whileHover={glowBtn}
+                          type="button"
+                          className="w-24 border border-white rounded-full py-2 mt-6 px-4"
+                        >
+                          Demo
+                        </motion.button>
+                      </a>
+                    )}
+                  </div>
                 </motion.div>
               </motion.div>
               <motion.div
@@ -88,12 +114,12 @@ export default function Project({ title, roles, tools, img, body, next }: Projec
                 </div>
               </motion.div>
             </div>
-            <div className="text-center mt-12 md:-mb-8">
+            <div className="text-right mt-8">
               <motion.button
                 variants={variants.projectNext}
-                whileHover={glowBtn}
+                whileHover={glowText}
                 type="button"
-                className="border border-white rounded-full py-2 px-10"
+                className="lg:text-lg border-b border-white bg-arrow bg-right bg-sm bg-no-repeat pl-1 pr-5"
                 onClick={() => handleNext(`/work/${next}`)}
               >
                 Next
@@ -130,7 +156,7 @@ export async function getStaticProps({ params }) {
   const allData = await allProjects.json();
   const thisProjectIndex = allData.findIndex((data) => data._id === thisData[0]._id);
 
-  const { title, roles, tools, img, body } = thisData[0];
+  const { title, roles, tools, img, body, url, repo } = thisData[0];
   const next = allData[thisProjectIndex + 1] ? allData[thisProjectIndex + 1].slug : allData[0].slug;
 
   return {
@@ -140,6 +166,8 @@ export async function getStaticProps({ params }) {
       tools,
       img,
       body,
+      url,
+      repo,
       next,
     },
   };
