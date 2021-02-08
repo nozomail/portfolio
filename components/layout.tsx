@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 import Header from "../components/header";
@@ -21,6 +21,7 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [height, setHeight] = useState<number>(0);
   const [stars, setStars] = useState([]);
+  const scrollRef = useRef(null);
   const controls = useAnimation();
   const router = useRouter();
 
@@ -58,6 +59,14 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
       setIsLoaded(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      setTimeout(() => {
+        scrollRef.current.scroll({ top: 0 });
+      }, 500);
+    }
+  }, [children]);
 
   useEffect(() => {
     if (isLoaded) {
@@ -104,7 +113,9 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
       </div>
 
       <main className="flex-grow relative">
-        <div className="absolute inset-0 z-20 overflow-y-auto overflow-x-hidden scroll-content">{children}</div>
+        <div ref={scrollRef} className="absolute inset-0 z-20 overflow-y-auto overflow-x-hidden scroll-content">
+          {children}
+        </div>
       </main>
     </motion.div>
   );

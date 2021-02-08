@@ -83,6 +83,26 @@ export const variants = {
         delay: 0.25,
       },
     },
+    exit: {
+      x: 60,
+      opacity: 0,
+      transition: {
+        duration: 0.6,
+        ease: "backIn",
+      },
+    },
+  },
+  projectNext: {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 0.75,
+        delay: 0.5,
+      },
+    },
   },
   formContent: {
     initial: {
@@ -154,7 +174,7 @@ export const layout = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.25,
+      duration: 0.5,
       delay: 0.5,
     },
   },
