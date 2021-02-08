@@ -5,8 +5,8 @@ import { motion, useAnimation } from "framer-motion";
 
 import Header from "../components/header";
 import Planets from "../components/planets";
-import Star, { StarProps } from "../components/star";
-import { getRandom } from "../utils/random";
+import Star from "../components/star";
+import { createStars } from "../utils/createStars";
 import { layout } from "../utils/framerMotion";
 
 type LayoutProps = {
@@ -25,35 +25,14 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
   const controls = useAnimation();
   const router = useRouter();
 
-  function createStars() {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    const starLength = Math.floor((windowWidth * windowHeight) / 500);
-    let newStars = [];
-    for (let i = 0; i < starLength; i++) {
-      let star = {} as StarProps;
-      star.size = getRandom(1, 6, 0);
-      if (i % 2 !== 0 && star.size >= 4) continue;
-      if (i % 3 !== 0 && star.size >= 3) continue;
-      const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-      star.x = getRandom(0, 1, 2) * windowWidth;
-      star.y = getRandom(0, 1, 2) * windowHeight;
-      star.duration = getRandom(3, 20, 2);
-      star.delay = getRandom(0, 20, 2) * plusOrMinus;
-      star.stay = i % 4 === 0;
-      newStars.push(star);
-    }
-    setStars(newStars);
-  }
-
   useEffect(() => {
     window.addEventListener("resize", () => {
       setHeight(window.innerHeight);
-      createStars();
+      setStars(createStars());
     });
 
     setHeight(window.innerHeight);
-    createStars();
+    setStars(createStars());
 
     if (!isLoaded) {
       setIsLoaded(true);

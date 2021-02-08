@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { header, icon } from "../utils/framerMotion";
 

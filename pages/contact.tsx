@@ -54,7 +54,7 @@ export default function Contact() {
               variants={variants.springInUp}
               whileHover={glowBtn}
               whileTap={glowBtn}
-              className="text-white border border-white rounded-full py-2 px-4 mt-8 focus:outline-none"
+              className="text-white border border-white rounded-full py-2 px-4 mt-8"
             >
               <Link href="/">Back to Home</Link>
             </motion.button>
@@ -112,7 +112,7 @@ export default function Contact() {
                     whileTap={btn}
                     className={`${
                       isSebmitting ? "pointer-events-none" : ""
-                    } w-full max-w-xs flex items-center justify-center h-12 text-white font-bold tracking-wider rounded-md bg-gradient-to-r from-teal-500 to-lightBlue-500 mt-8 transition-opacity focus:outline-none focus:opacity-50 mx-auto`}
+                    } w-full max-w-xs flex items-center justify-center h-12 text-white font-bold tracking-wider rounded-md bg-gradient-to-r from-teal-500 to-lightBlue-500 mt-8 transition-opacity focus:opacity-50 mx-auto`}
                   >
                     {isSebmitting && <SpinIcon />}
                     Send

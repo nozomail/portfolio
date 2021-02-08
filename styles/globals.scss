@@ -9,6 +9,12 @@ textarea {
   outline: none;
 }
 
+button,
+button:focus {
+  outline: none;
+  appearance: none;
+}
+
 @layer utilities {
   .filter-shadow {
     filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.3));
@@ -101,7 +107,7 @@ textarea {
       content: "";
       width: 100px;
       height: 85px;
-      background: url("/rocket1.svg") center / contain no-repeat;
+      background: url("/rocket.svg") center / contain no-repeat;
       transform: translate(0);
       transition: transform 1s ease-in;
       position: absolute;
