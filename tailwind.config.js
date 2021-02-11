@@ -28,7 +28,7 @@ module.exports = {
         cloud: "url('/cloud.svg')",
         arrow: "url('/arrow.svg')",
       },
-      backgroungSize: {
+      backgroundSize: {
         sm: "1rem",
       },
       inset: {

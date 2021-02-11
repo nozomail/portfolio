@@ -286,3 +286,21 @@ export const icon = {
   scale: 1.3,
   transition: { type: "spring", bounce: 0.6 },
 };
+
+export const planet1 = {
+  scale: 1.4,
+  transition: {
+    type: "spring",
+    bounce: 0.7,
+    duration: 1,
+  },
+};
+
+export const planet2 = {
+  scale: 0.75,
+  transition: {
+    type: "spring",
+    bounce: 0.6,
+    duration: 1,
+  },
+};

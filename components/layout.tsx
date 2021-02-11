@@ -92,7 +92,12 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
       </div>
 
       <main className="flex-grow relative">
-        <div ref={scrollRef} className="absolute inset-0 z-20 overflow-y-auto overflow-x-hidden scroll-content">
+        <div
+          ref={scrollRef}
+          className={`absolute inset-0 z-20 overflow-y-auto overflow-x-hidden scroll-content ${
+            router.pathname === "/" ? "pointer-events-none" : ""
+          }`}
+        >
           {children}
         </div>
       </main>
