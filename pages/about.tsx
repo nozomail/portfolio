@@ -26,7 +26,11 @@ export default function About({ img, text, tools }: AboutProps) {
         >
           <img src={img} alt="Nozomi Mail" />
         </motion.h1>
-        <motion.p variants={variants.fadeInUp} className="mt-8" dangerouslySetInnerHTML={{ __html: text }}></motion.p>
+        <motion.div
+          variants={variants.fadeInUp}
+          className="mt-8 desc"
+          dangerouslySetInnerHTML={{ __html: text }}
+        ></motion.div>
       </motion.section>
       <section>
         <motion.h2 variants={variants.aboutHeading} className="font-display text-2xl text-shadow-sw text-center mt-20">

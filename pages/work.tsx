@@ -30,8 +30,8 @@ export default function Work({ projects }: ProjectsProps) {
           >
             <Link href={`/work/${project.slug}`}>
               <div className="cursor-pointer">
-                <div className="bg-white rounded-md overflow-hidden shadow-sw relative pt-3/4">
-                  <img className="w-full h-full absolute inset-0 object-cover" src={project.img} alt="" />
+                <div className="rounded-md shadow-sw relative pt-3/4">
+                  <img className="w-full h-full rounded-md absolute inset-0 object-cover" src={project.img} alt="" />
                 </div>
                 <h2 className="text-lg lg:text-xl text-white py-1 lg:py-2">{project.title}</h2>
               </div>

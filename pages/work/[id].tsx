@@ -7,6 +7,7 @@ import { variants, page, glowBtn, glowText } from "../../utils/framerMotion";
 export type ProjectProps = {
   slug: string;
   title: string;
+  type: string;
   roles: string[];
   tools: string[];
   img: string;
@@ -16,7 +17,7 @@ export type ProjectProps = {
   next: string;
 };
 
-export default function Project({ title, roles, tools, img, body, url, repo, next }: ProjectProps) {
+export default function Project({ title, type, roles, tools, img, body, url, repo, next }: ProjectProps) {
   const router = useRouter();
   const [isSwitching, setIsSwitching] = useState(false);
 
@@ -42,11 +43,9 @@ export default function Project({ title, roles, tools, img, body, url, repo, nex
           <motion.div key="2" initial="initial" animate="animate" exit={{ opacity: 0, transition: { delay: 0.5 } }}>
             <div className="md:flex">
               <motion.div variants={variants.staggerFast} exit={page.exit} className="md:w-1/2">
-                <motion.h1
-                  variants={variants.fadeInUp}
-                  className="font-display text-3xl lg:text-5xl text-shadow-sw lg:text-shadow-lw"
-                >
-                  {title}
+                <motion.h1 variants={variants.fadeInUp}>
+                  <h1 className="font-display text-3xl lg:text-5xl text-shadow-sw lg:text-shadow-lw">{title}</h1>
+                  <div className="text-sm lg:text-base lg:px-1">{type} Project</div>
                 </motion.h1>
                 <motion.div variants={variants.fadeInUp}>
                   <ul className="mt-4 lg:mt-8">
@@ -59,7 +58,7 @@ export default function Project({ title, roles, tools, img, body, url, repo, nex
                       </li>
                     ))}
                   </ul>
-                  <ul className="mt-2 lg:mt-4">
+                  <ul className="mt-1 lg:mt-2">
                     {tools.map((tool, i) => (
                       <li
                         key={i}
@@ -72,12 +71,12 @@ export default function Project({ title, roles, tools, img, body, url, repo, nex
                 </motion.div>
                 <motion.div
                   variants={variants.fadeInUp}
-                  className="md:hidden w-full pt-3/4 mt-8 bg-white rounded-md shadow-sw relative overflow-hidden"
+                  className="md:hidden w-full pt-3/4 mt-8 rounded-xl relative overflow-hidden"
                 >
-                  <img src={img} alt={title} className="w-full h-full absolute inset-0 object-cover" />
+                  <img src={img} alt={title} className="w-full h-full rounded-xl absolute inset-0 object-cover" />
                 </motion.div>
                 <motion.div variants={variants.fadeInUp}>
-                  <div dangerouslySetInnerHTML={{ __html: body }} className="mt-8 lg:text-xl project-desc"></div>
+                  <div dangerouslySetInnerHTML={{ __html: body }} className="mt-8 lg:text-xl desc"></div>
                   <div className="">
                     {repo && (
                       <a href={repo} target="_blank">
@@ -109,8 +108,8 @@ export default function Project({ title, roles, tools, img, body, url, repo, nex
                 exit={variants.projectImg.exit}
                 className="hidden md:flex flex-col justify-center w-1/2  ml-8 lg:ml-12"
               >
-                <div className="w-full pt-3/4 bg-white rounded-md shadow-sw relative overflow-hidden">
-                  <img src={img} alt={title} className="w-full h-full absolute inset-0 object-cover" />
+                <div className="w-full pt-3/4 rounded-lg relative overflow-hidden">
+                  <img src={img} alt={title} className="w-full h-full rounded-lg absolute inset-0 object-cover" />
                 </div>
               </motion.div>
             </div>
@@ -156,12 +155,13 @@ export async function getStaticProps({ params }) {
   const allData = await allProjects.json();
   const thisProjectIndex = allData.findIndex((data) => data._id === thisData[0]._id);
 
-  const { title, roles, tools, img, body, url, repo } = thisData[0];
+  const { title, type, roles, tools, img, body, url, repo } = thisData[0];
   const next = allData[thisProjectIndex + 1] ? allData[thisProjectIndex + 1].slug : allData[0].slug;
 
   return {
     props: {
       title,
+      type,
       roles,
       tools,
       img,
