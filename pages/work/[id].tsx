@@ -14,14 +14,15 @@ export type ProjectProps = {
   body: string;
   url: string | null;
   repo: string | null;
+  prev: string;
   next: string;
 };
 
-export default function Project({ title, type, roles, tools, img, body, url, repo, next }: ProjectProps) {
+export default function Project({ title, type, roles, tools, img, body, url, repo, prev, next }: ProjectProps) {
   const router = useRouter();
   const [isSwitching, setIsSwitching] = useState(false);
 
-  function handleNext(path: string) {
+  function handleNav(path: string) {
     router.push(path);
     setIsSwitching(true);
     setTimeout(() => {
@@ -113,13 +114,22 @@ export default function Project({ title, type, roles, tools, img, body, url, rep
                 </div>
               </motion.div>
             </div>
-            <div className="text-right mt-8">
+            <div className="flex justify-between mt-8">
               <motion.button
-                variants={variants.projectNext}
+                variants={variants.projectNav}
                 whileHover={glowText}
                 type="button"
-                className="lg:text-lg border-b border-white bg-arrow bg-right bg-sm bg-no-repeat pl-1 pr-5"
-                onClick={() => handleNext(`/work/${next}`)}
+                className="lg:text-lg border-b border-white bg-arrowL bg-left bg-sm bg-no-repeat pl-1 pl-5"
+                onClick={() => handleNav(`/work/${prev}`)}
+              >
+                Previous
+              </motion.button>
+              <motion.button
+                variants={variants.projectNav}
+                whileHover={glowText}
+                type="button"
+                className="lg:text-lg border-b border-white bg-arrowR bg-right bg-sm bg-no-repeat pl-1 pr-5"
+                onClick={() => handleNav(`/work/${next}`)}
               >
                 Next
               </motion.button>
@@ -156,6 +166,7 @@ export async function getStaticProps({ params }) {
   const thisProjectIndex = allData.findIndex((data) => data._id === thisData[0]._id);
 
   const { title, type, roles, tools, img, body, url, repo } = thisData[0];
+  const prev = allData[thisProjectIndex - 1] ? allData[thisProjectIndex - 1].slug : allData[allData.length - 1].slug;
   const next = allData[thisProjectIndex + 1] ? allData[thisProjectIndex + 1].slug : allData[0].slug;
 
   return {
@@ -168,6 +179,7 @@ export async function getStaticProps({ params }) {
       body,
       url,
       repo,
+      prev,
       next,
     },
   };

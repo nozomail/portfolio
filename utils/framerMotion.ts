@@ -92,7 +92,7 @@ export const variants = {
       },
     },
   },
-  projectNext: {
+  projectNav: {
     initial: {
       opacity: 0,
     },

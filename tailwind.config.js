@@ -26,7 +26,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         cloud: "url('/cloud.svg')",
-        arrow: "url('/arrow.svg')",
+        arrowR: "url('/arrow-r.svg')",
+        arrowL: "url('/arrow-l.svg')",
       },
       backgroundSize: {
         sm: "1rem",
