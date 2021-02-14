@@ -83,6 +83,7 @@ export default function Project({ title, type, roles, tools, img, body, url, rep
                       <a href={repo} target="_blank">
                         <motion.button
                           whileHover={glowBtn}
+                          whileTap={glowBtn}
                           type="button"
                           className="w-24 border border-white rounded-full py-2 px-4 mt-6 mr-4"
                         >
@@ -94,6 +95,7 @@ export default function Project({ title, type, roles, tools, img, body, url, rep
                       <a href={url} target="_blank">
                         <motion.button
                           whileHover={glowBtn}
+                          whileTap={glowBtn}
                           type="button"
                           className="w-24 border border-white rounded-full py-2 mt-6 px-4"
                         >
@@ -118,6 +120,7 @@ export default function Project({ title, type, roles, tools, img, body, url, rep
               <motion.button
                 variants={variants.projectNav}
                 whileHover={glowText}
+                whileTap={glowText}
                 type="button"
                 className="lg:text-lg border-b border-white bg-arrowL bg-left bg-sm bg-no-repeat pl-1 pl-5"
                 onClick={() => handleNav(`/work/${prev}`)}
@@ -127,6 +130,7 @@ export default function Project({ title, type, roles, tools, img, body, url, rep
               <motion.button
                 variants={variants.projectNav}
                 whileHover={glowText}
+                whileTap={glowText}
                 type="button"
                 className="lg:text-lg border-b border-white bg-arrowR bg-right bg-sm bg-no-repeat pl-1 pr-5"
                 onClick={() => handleNav(`/work/${next}`)}
