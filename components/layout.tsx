@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
@@ -14,10 +13,7 @@ type LayoutProps = {
   pageTitle?: string;
 };
 
-const siteName = "NOZOMI MAIL";
-
-export default function Layout({ children, pageTitle }: LayoutProps) {
-  const title = pageTitle ? `${pageTitle} | ${siteName}` : siteName;
+export default function Layout({ children }: LayoutProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [height, setHeight] = useState<number>(0);
   const [stars, setStars] = useState([]);
@@ -64,19 +60,6 @@ export default function Layout({ children, pageTitle }: LayoutProps) {
       className="flex flex-col bg-gradient-to-r from-indigo-900 to-fuchsia-900 overflow-hidden"
       style={{ height: `${height}px` }}
     >
-      <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;400;600;700&family=Philosopher:wght@400;700&family=Roboto:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" href="/favicon.ico" />
-        <title>{title}</title>
-      </Head>
-
       <Header />
 
       <div
