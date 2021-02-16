@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -37,6 +38,9 @@ export default function Project({ title, type, roles, tools, img, body, url, rep
       exit={{ opacity: 0 }}
       className="max-w-screen-xl min-h-full flex flex-col justify-center text-white px-4 md:px-8 py-8 md:pb-12 mx-auto"
     >
+      <Head>
+        <title>{title} | Nozomi Mail</title>
+      </Head>
       <AnimatePresence>
         {isSwitching ? (
           <motion.div key="1" exit={{ opacity: 0 }}></motion.div>

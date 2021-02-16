@@ -29,7 +29,6 @@ export default class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:description" content="Nozomi Mail, a front-end developer based in Melbourne." />
           <meta property="og:image" content="https://nozomi-mail.vercel.app/og.png" />
-          <title>Nozomi Mail</title>
           <meta name="description" content="Nozomi Mail, a front-end developer based in Melbourne." />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

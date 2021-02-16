@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { motion } from "framer-motion";
 
 import { variants, page } from "../utils/framerMotion";
@@ -19,6 +20,9 @@ export default function About({ img, text, tools }: AboutProps) {
       exit={page.exit}
       className="max-w-screen-xl min-h-full flex flex-col justify-center text-white px-4 md:px-8 py-8 md:pb-12 mx-auto"
     >
+      <Head>
+        <title>About | Nozomi Mail</title>
+      </Head>
       <motion.section variants={variants.stagger} className="max-w-screen-sm mx-auto">
         <motion.h1
           variants={variants.aboutImg}

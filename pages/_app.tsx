@@ -1,9 +1,10 @@
+import Head from "next/head";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 
-import { pageview } from "../utils/gtag";
+import * as gtag from "../utils/gtag";
 
 import "tailwindcss/tailwind.css";
 import "../styles/globals.scss";
@@ -15,7 +16,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     function handleRouteChange(url: URL) {
-      pageview(url);
+      gtag.pageview(url);
     }
 
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -27,6 +28,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Layout>
+      <Head>
+        <title>Nozomi Mail</title>
+      </Head>
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>

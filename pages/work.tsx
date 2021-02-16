@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -16,6 +17,9 @@ export default function Work({ projects }: ProjectsProps) {
       exit={page.exit}
       className="max-w-screen-xl min-h-full flex flex-col justify-center text-white px-4 md:px-8 py-8 md:pb-12 mx-auto"
     >
+      <Head>
+        <title>Work | Nozomi Mail</title>
+      </Head>
       <motion.ul
         variants={variants.staggerFast}
         className="sm:flex justify-center flex-wrap sm:-mx-2 lg:-mx-4 xl:-mx-8 xl:mx-auto"

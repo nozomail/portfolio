@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -40,6 +41,9 @@ export default function Contact() {
       exit={contact.exit}
       className="min-h-full sm:min-h-none sm:h-full flex items-center"
     >
+      <Head>
+        <title>Contact | Nozomi Mail</title>
+      </Head>
       <AnimatePresence exitBeforeEnter>
         {isSubmitted ? (
           <motion.div key="1" variants={variants.staggerDelayed} className="text-center mx-auto">
@@ -56,7 +60,7 @@ export default function Contact() {
               whileTap={glowBtn}
               className="text-white border border-white rounded-full py-2 px-4 mt-8"
             >
-              <Link href="/">Back to Home</Link>
+              <Link href="/">Go back Home</Link>
             </motion.button>
           </motion.div>
         ) : (
