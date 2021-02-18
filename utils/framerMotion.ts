@@ -107,6 +107,7 @@ export const variants = {
   formContent: {
     initial: {
       opacity: 0,
+      scale: 1,
     },
     animate: {
       opacity: 1,
