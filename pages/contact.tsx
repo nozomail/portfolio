@@ -73,10 +73,7 @@ export default function Contact() {
               onSubmit={handleSubmit}
             >
               <div className="w-lg h-lg sm:w-full sm:h-full flex flex-col justify-center items-center text-gray-600 bg-cloud bg-center bg-contain bg-no-repeat absolute sm:static left-1/2 transform -translate-x-1/2 sm:transform-none">
-                <motion.div
-                  variants={variants.formContent}
-                  className="w-full max-w-xs md:max-w-sm lg:max-w-md py-16 sm:py-20 md:py-24 px-10 mx-auto"
-                >
+                <div className="w-full max-w-xs md:max-w-sm lg:max-w-md py-16 sm:py-20 md:py-24 px-10 mx-auto">
                   <h1 className="text-lg sm:text-xl md:text-2xl font-semibold text-center mb-6 md:mb-12">
                     Send Nozomi a Message
                   </h1>
@@ -125,7 +122,7 @@ export default function Contact() {
                   {isError && (
                     <p className="max-w-xs text-rose-600 leading-tight mt-2 mx-auto">Sorry, please try again.</p>
                   )}
-                </motion.div>
+                </div>
               </div>
             </motion.form>
           </div>
