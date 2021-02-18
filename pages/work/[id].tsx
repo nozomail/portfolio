@@ -96,14 +96,14 @@ export default function Project({ title, type, roles, tools, img, body, url, rep
                       </a>
                     )}
                     {url && (
-                      <a href={url} target="_blank">
+                      <a href={url} target="_blank" rel="nofollow noopener noreferrer">
                         <motion.button
                           whileHover={glowBtn}
                           whileTap={glowBtn}
                           type="button"
                           className="w-24 border border-white rounded-full py-2 mt-6 px-4"
                         >
-                          Demo
+                          Site
                         </motion.button>
                       </a>
                     )}
